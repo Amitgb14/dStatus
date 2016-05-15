@@ -3,7 +3,8 @@
 
 
 dStatus is web application to monitor CPU resource on local and remote machine.
-dStatus contained dServer and dClient.
+
+dStatus contain dServer and dClient.
 
 
 ### dServer
