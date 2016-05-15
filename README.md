@@ -24,7 +24,7 @@ python dServer/app.py
 ```
 
 
-### Run dClient
+### How to run dClient
 
 
 ```
