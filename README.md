@@ -10,7 +10,9 @@ dStatus contain dServer and dClient.
 ### dServer
 
 dServer is provide web interface to monitor CPU resource.
-It's run client application to connect dClient and recive data. 
+
+It's run client application to connect dClient and receive data. 
+
 
 ### dClient
 
