@@ -1,5 +1,5 @@
 
-# dServer
+# dStatus
 
 
 dStatus is web application to monitor CPU resource on local and remote machine.
