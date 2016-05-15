@@ -12,7 +12,7 @@ import dServer
 app = Flask(__name__)
 
 _PORT = config.CLIENT_PORT
-_host_file = 'hosts'
+_host_file = 'dServer/hosts'
 
 
 def check_node(node_ip):
