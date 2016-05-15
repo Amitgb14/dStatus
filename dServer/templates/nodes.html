@@ -1,0 +1,73 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+
+<div class="list-group" id="index">
+    <a href="/" class="list-group-item">Home</a>
+    {% for node in nodes %}
+        {% if nodes[node] == "Success"%}
+            <a href="#nodes" class="list-group-item" aria-controls="nodes" role="tab" data-toggle="tab" data-node-id="{{node}}">{{node}}</a>
+        {% else %}    
+            <a href="#" class="list-group-item disabled">{{node}}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+
+<div class="tab-content"><br>
+    <div role="tabpanel" class="tab-pane active"><h2>Choose node</h2></div>
+
+  
+<div role="tabpanel" class="tab-pane" id="nodes">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-md-offset-3">
+             <h1 class="page-header">
+                  <span id="node"></span>
+             </h1>
+        </div>
+    </div>       
+    <div class="row">
+    
+    <div class="col-lg-2 col-md-6 col-md-offset-3">
+        <h3>Memory</h3>
+        <div class="chart" data-percent="" id="memory">
+           <span class="percent"></span>
+           <label></label>
+        </div>
+        
+        </div>
+
+    </div>
+
+                                
+    <div class="row"><br>
+    <div class="col-lg-6 col-md-6 col-md-offset-3">
+        <h3>Disk&nbsp;<span class="glyphicon glyphicon-hdd"></span></h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Mounted</th>
+                    <th>Size</th>
+                    <th>Used</th>
+                    <th>Available</th>
+                    <th>Use%</th>
+                    <th>Filesystem</th>
+                </tr>
+            </thead>
+                         
+            <tbody id="go">
+
+            </tbody>
+    
+        </table>
+                               
+        <div id="infos"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
