@@ -3,7 +3,7 @@
 import ConfigParser
 import os
 
-name = 'config/config.cfg'
+name = 'dClient/config/config.cfg'
 if not os.path.exists(name):
     raise Exception('Please add a proper cofig file config.cfg')
 
