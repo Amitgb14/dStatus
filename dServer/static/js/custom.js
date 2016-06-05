@@ -2,7 +2,7 @@
 	    
 function memory_chart(memory) {
 
-              $('.chart').easyPieChart({
+              $('#memory').easyPieChart({
                 barColor: '#ef1e25',
                 trackColor: '#e5e5e5',
                 barColor: '#337AB7',
@@ -14,8 +14,8 @@ function memory_chart(memory) {
                 animate: 1000,
               });
 
-              $('.chart').data('easyPieChart').update(memory);
-              $('span', $('.chart')).text(memory);
+              $('#memory').data('easyPieChart').update(memory);
+              $('span', $('#memory')).text(memory);
 
 }
 
@@ -25,7 +25,7 @@ function set_memory(machine, memory)
   
              memory_chart(memory.memory_percentage);
              var use = 'RAM Used '+memory.usages_memory+'/'+memory.total_memory+' GB';
-             $('label', $('.chart')).text(use);
+             $('label', $('#memory')).text(use);
 }
 
 
@@ -48,6 +48,27 @@ function set_disk(machine, disk)
     $("#go").html(tr);
 }
 
+function sum(arr) {
+   var num = 0;
+   for (var i = 0; i < arr.length; i++) {
+       num += (typeof arr[i] == 'number') ? arr[i] : 0;
+   }
+   return num;
+};
+
+
+function set_cpu(machine, cpu)
+{
+  
+   var cpus = '';
+   $.each(cpu.cpu_usages, function(index, value){
+        index += 1;
+        cpus += 'CPU'+index+' : '+value+'<br>';
+   });
+   $("#cpus").html(cpus);
+             
+}
+
 
 function reports()
 {
@@ -65,6 +86,10 @@ function reports()
 		        else if (key == "disk")
 		        {
 		            set_disk(i, this);
+		        }
+		        else if (key == "cpu")
+		        {
+		            set_cpu(i, this);
 		        }
 		    
 		});
@@ -87,7 +112,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     {
         reports(); 
     }, 
-    1000);
+    2000);
     
 })
 
